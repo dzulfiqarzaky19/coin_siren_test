@@ -87,7 +87,7 @@ export default function HeroSection() {
 
             <p className="sm:text-lg opacity-90 mt-4">{HeroSection.description}</p>
 
-            <button className="mt-6 order-2 hidden sm:block py-3 bg-transparent font-bold underline hover:opacity-90 transition">
+            <button className="mt-6 hidden sm:block py-3 bg-transparent font-bold underline hover:opacity-90 transition">
               {HeroSection.cta}
             </button>
           </IntroAnimation>
@@ -99,14 +99,12 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-12 flex sm:w-2xl justify-center order-1 sm:order-2">
+        <div className="mt-12 flex sm:w-2xl justify-center ">
           <HeroSlider items={filteredData} />
         </div>
       </div>
 
-      <div></div>
-
-      <div className="container mx-auto px-4 mt-12 sm:hidden">
+      <div className="container mx-auto px-4 mt-12 sm:hidden space-y-4 flex flex-col items-baseline justify-baseline">
         <HeroFilter />
 
         <button className="py-3 bg-transparent font-bold underline hover:opacity-90 transition text-[#FBFF23]">

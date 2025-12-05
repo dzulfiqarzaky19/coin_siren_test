@@ -35,7 +35,7 @@ export default function HeroSlider({ items }: { items: Candidate[] }) {
   }, [setIndex]);
 
   return (
-    <IntroAnimation className="relative w-full max-w-5xl mx-auto py-10">
+    <IntroAnimation className="relative w-full  mx-auto py-10">
       <button
         onClick={prev}
         className="absolute left-0 top-1/2 z-30 w-12 h-12 
@@ -72,7 +72,7 @@ export default function HeroSlider({ items }: { items: Candidate[] }) {
           return (
             <React.Fragment key={item.id}>
               {isCenter && (
-                <Bubble className="absolute -top-5 bg-white text-[#00C696] rounded-lg">
+                <Bubble className="absolute top-0 md:-top-5 bg-white text-[#00C696] rounded-lg">
                   <LucideDollarSign className="bg-[#BBF32D] rounded-full" stroke="#00C696" width={26} height={26} />
 
                   <h3 className="text-xl font-bold">{item.salary}</h3>
@@ -92,7 +92,7 @@ export default function HeroSlider({ items }: { items: Candidate[] }) {
                   damping: 22,
                   delay: i * 0.05,
                 }}>
-                <HeroCard data={item} isCenter={isCenter} />
+                <HeroCard data={item} />
               </motion.div>
             </React.Fragment>
           );

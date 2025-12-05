@@ -1,4 +1,5 @@
 'use client';
+import { Check } from 'lucide-react';
 import { useRef, useState } from 'react';
 
 export const HeroFilter = () => {
@@ -12,19 +13,31 @@ export const HeroFilter = () => {
   };
 
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="grid grid-cols-2">
       {filter.map((item, index) => (
         <label
           key={index}
-          className="flex gap-2 px-4 py-2 rounded-lg font-semibold hover:bg-white/80 transition cursor-pointer">
+          className="flex gap-2 py-2 rounded-lg font-semibold hover:bg-white/80 transition cursor-pointer">
           <input
             ref={checkboxRef}
             type="checkbox"
-            className="form-checkbox text-cyan-700"
+            className={`
+                appearance-none h-6 w-6 rounded-md cursor-pointer 
+                bg-indigo-100 border-2 border-indigo-200 
+            `}
             value={item}
             checked={selected.includes(item)}
             onChange={() => handleChange(item)}
           />
+
+          <div
+            className={`
+                absolute h-6 w-6 flex items-center justify-center pointer-events-none
+                transition duration-200 
+                ${selected.includes(item) ? 'opacity-100' : 'opacity-0'}
+            `}>
+            <Check className="h-4 w-4 text-[#2C599B] stroke-3" />
+          </div>
           {item}
         </label>
       ))}
