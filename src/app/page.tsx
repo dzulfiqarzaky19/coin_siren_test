@@ -1,11 +1,34 @@
-import Image from 'next/image';
+// import { Banner } from '@/types/banner';
+// import { TCategory } from '@/types/categories';
+// import { Product } from '@/types/product';
 
-export default function Home() {
+import { FooterSection } from '@/components/footer/FooterSection';
+import HeroSection from '@/components/hero/HeroSection';
+
+async function getProducts() {
+  const res = await fetch('http://localhost:3000/api/products', {
+    cache: 'no-store',
+  });
+
+  return res.json();
+}
+
+export default async function Home() {
+  const [banners, categories, footer] = await Promise.all([
+    fetch('http://localhost:3000/api/banners', { cache: 'no-store' }).then((r) => r.json()),
+    fetch('http://localhost:3000/api/categories', { cache: 'no-store' }).then((r) => r.json()),
+    fetch('http://localhost:3000/api/footer', { cache: 'no-store' }).then((r) => r.json()),
+  ]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        hello world
-      </main>
-    </div>
+    <main>
+      <HeroSection />
+
+      {/* <BannerCarousel banners={banners} />
+
+      <CategoriesSection categories={categories} />
+*/}
+      <FooterSection data={footer} />
+    </main>
   );
 }
