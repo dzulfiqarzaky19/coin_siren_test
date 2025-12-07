@@ -3,18 +3,16 @@ import { HeroSection } from '@/components/organisms/HeroSection';
 import { Footer } from '@/components/organisms/Footer';
 import { Suspense } from 'react';
 
-import { getBaseUrl } from '@/utils/api';
+import { GET as getTalents } from '@/app/api/talents/route';
+import { GET as getServices } from '@/app/api/services/route';
+import { GET as getCompany } from '@/app/api/company/route';
 
 export default async function Home() {
-  const baseUrl = getBaseUrl();
-
   const [talents, services, company] = await Promise.all([
-    fetch(`${baseUrl}/api/talents`, { cache: 'no-store' }).then((r) => r.json()),
-    fetch(`${baseUrl}/api/services`, { cache: 'no-store' }).then((r) => r.json()),
-    fetch(`${baseUrl}/api/company`, { cache: 'no-store' }).then((r) => r.json()),
+    getTalents().then((r) => r.json()),
+    getServices().then((r) => r.json()),
+    getCompany().then((r) => r.json()),
   ]);
-
-  console.log({ baseUrl, talents, services });
 
   return (
     <main>
