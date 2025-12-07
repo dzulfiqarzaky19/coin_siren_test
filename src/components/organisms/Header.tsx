@@ -1,7 +1,7 @@
 import { Logo } from '../atoms/Logo';
 import { HeaderDesktopNav } from '../molecules/HeaderDesktopNav';
 import { HeaderMobileMenu } from '../molecules/HeaderMobileMenu';
-import { ButtonLink } from '../atoms/ButtonLink';
+import { Button } from '../atoms/Button';
 
 export const Header = () => {
   return (
@@ -10,7 +10,7 @@ export const Header = () => {
         <Logo />
         <HeaderDesktopNav />
         <HeaderMobileMenu />
-        <ButtonLink label="문의하기" />
+        <Button label="문의하기" href="#" className="hidden md:flex" />
       </div>
     </header>
   );

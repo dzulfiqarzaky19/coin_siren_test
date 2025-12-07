@@ -7,7 +7,6 @@ import prettier from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 
 export default defineConfig([
-  // Next.js base configs
   ...nextVitals,
   ...nextTs,
 
@@ -38,7 +37,6 @@ export default defineConfig([
       'react/prop-types': 'off',
       'react/display-name': 'off',
 
-      // TS rules
       'no-unused-vars': 'off',
       '@typescript-eslint/no-var-requires': 'off',
       '@typescript-eslint/no-unused-vars': ['error'],

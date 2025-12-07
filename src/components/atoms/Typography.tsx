@@ -14,16 +14,16 @@ interface ITypographyProps extends React.HTMLAttributes<HTMLElement> {
 const variantStyles: Record<TVariant, string> = {
   h1: 'text-4xl md:text-5xl leading-[130%]',
   h2: 'text-3xl font-bold',
-  h3: 'text-xl md:text-2xl', // Hero cards
+  h3: 'text-xl md:text-2xl',
   body1: 'text-base md:text-lg leading-[150%]',
-  body2: 'text-[14px]', // Footer items
+  body2: 'text-[14px]',
   caption: 'text-sm leading-[150%]',
 };
 
 const weightStyles: Record<TWeight, string> = {
-  regular: 'font-normal', // 400
-  bold: 'font-bold', // 700
-  black: 'font-black', // 900
+  regular: 'font-normal',
+  bold: 'font-bold',
+  black: 'font-black',
 };
 
 export const Typography = ({

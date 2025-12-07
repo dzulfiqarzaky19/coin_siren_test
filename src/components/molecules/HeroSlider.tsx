@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { IntroAnimation } from '../atoms/IntroAnimation';
 import { ITalents } from '@/types/talents';
 import { HeroSliderItem } from './HeroSliderItem';
-import { IconButton } from '../atoms/IconButton';
+import { Button } from '../atoms/Button';
 
 const VISIBLE_RANGE = 1;
 
@@ -40,14 +40,16 @@ export const HeroSlider = ({ talents }: IHeroSliderProps) => {
 
   return (
     <IntroAnimation className="mt-12 md:mt-0 w-full md:w-xl flex justify-center relative mx-auto">
-      <IconButton
+      <Button
+        variant="icon"
         icon={<ChevronLeft className="w-6 h-6" />}
         onClick={prev}
         className="absolute -left-2 md:left-0 top-1/2"
         ariaLabel="Previous slide"
       />
 
-      <IconButton
+      <Button
+        variant="icon"
         icon={<ChevronRight className="w-6 h-6" />}
         onClick={next}
         className="absolute -right-2 md:right-0 top-1/2"

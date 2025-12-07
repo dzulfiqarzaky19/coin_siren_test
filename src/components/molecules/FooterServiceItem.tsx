@@ -14,7 +14,7 @@ interface IFooterServiceItemProps {
 
 export const FooterServiceItem = ({ category }: IFooterServiceItemProps) => {
   return (
-    <div className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+    <div className="bg-white p-4 rounded-xl hover:shadow-sm transition cursor-pointer flex flex-col justify-between">
       <div className="bg-[#EFF1F6] w-10 h-10 flex items-center justify-center rounded-lg mb-3">
         <Image src={category.icon} alt={category.en} width={24} height={24} />
       </div>
