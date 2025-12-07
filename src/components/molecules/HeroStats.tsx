@@ -1,3 +1,5 @@
+import { Typography } from '../atoms/Typography';
+
 const stats = [
   { label: '평균 월 120만원', value: '임금을 해당 국가를 기준으로 계산합니다.' },
   { label: '최대 3회 인력교체', value: '막상 채용해보니 맞지 않아도 걱정하지 마세요.' },
@@ -9,8 +11,8 @@ export const HeroStats = () => (
     {stats.map((item) => (
       <div key={item.label} className="space-y-2">
         <div className="border-t-2 w-[129px]"></div>
-        <p className="text-md font-bold">{item.label}</p>
-        <p className="text-sm opacity-90">{item.value}</p>
+        <Typography variant="body1" weight="black">{item.label}</Typography>
+        <Typography variant="caption" weight="black" className="opacity-80">{item.value}</Typography>
       </div>
     ))}
   </div>

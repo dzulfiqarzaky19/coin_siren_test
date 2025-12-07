@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { IntroAnimation } from '../atoms/IntroAnimation';
 import Image from 'next/image';
 import { IServices } from '@/types/services';
+import { Typography } from '../atoms/Typography';
 
 
 const DELAY = 5000;
@@ -59,7 +60,9 @@ export const HeroCategory = ({ services }: IHeroCategoryProps) => {
             <Image src={category.icon} width={32} height={32} alt={category.title} className="object-contain" />
           </div>
 
-          <span className="text-white text-xl font-black px-4 py-2 rounded-full ">{category.title}</span>
+          <Typography as="span" variant="h3" weight="black" className="text-white px-4 py-2 rounded-full">
+            {category.title}
+          </Typography>
         </motion.div>
       ))}
     </IntroAnimation>

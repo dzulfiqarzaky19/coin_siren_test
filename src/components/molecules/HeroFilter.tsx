@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import { Typography } from '../atoms/Typography';
 
 const filter = ['한국어 능력', '업무 수행 능력', '겸업 여부', '평판 조회'];
 
@@ -20,7 +21,7 @@ export const HeroFilter = () => (
         <div className="absolute h-6 w-6 flex items-center justify-center pointer-events-none">
           <Check className="h-4 w-4 text-[#2C599B] stroke-3" />
         </div>
-        {item}
+        <Typography as="span" variant="body1" weight="bold">{item}</Typography>
       </label>
     ))}
   </div>

@@ -6,6 +6,7 @@ import { HeroFilter } from '../molecules/HeroFilter';
 import { Bubble } from '../atoms/Bubble';
 import { ITalents } from '@/types/talents';
 import { IServices } from '@/types/services';
+import { Typography } from '../atoms/Typography';
 
 const HeroSectionData = {
   topLabel: '풀타임, 파트타임',
@@ -34,21 +35,29 @@ export const HeroSection = ({ talents, services }: IHeroSectionProps) => (
             bubbleClassName="bg-[#8BC4FF] md:bg-[#E9F7EF] before:bg-[#8BC4FF] before:md:bg-[#E9F7EF]"
             arrowPosition="left">
 
-            <div className="text-white md:text-[#40E2E8] text-s font-semibold px-3 py-1 rounded-lg">
+            <Typography as="div" variant="caption" weight="black" className="text-white md:text-[#40E2E8] px-3 py-1 rounded-lg">
               {HeroSectionData.topLabel}
-            </div>
+            </Typography>
           </Bubble>
         </IntroAnimation>
 
 
         <IntroAnimation animation="fadeInUp">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight max-w-3xl">{HeroSectionData.title.a}</h1>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight max-w-3xl">{HeroSectionData.title.b}</h1>
+          <Typography as="h1" variant="h1" weight="black" className="max-w-3xl">
+            {HeroSectionData.title.a}
+          </Typography>
+          <Typography as="h1" variant="h1" weight="black" className="max-w-3xl">
+            {HeroSectionData.title.b}
+          </Typography>
 
-          <p className="md:text-lg opacity-90 mt-4">{HeroSectionData.description}</p>
+          <Typography as="p" variant="body1" className="opacity-90 mt-4 leading-[34px]">
+            {HeroSectionData.description}
+          </Typography>
 
-          <button className="mt-6 hidden md:block py-3 bg-transparent font-bold underline hover:opacity-90 transition">
-            {HeroSectionData.cta}
+          <button className="mt-6 hidden md:block py-3 bg-transparent hover:opacity-90 transition text-left">
+            <Typography as="span" weight="black" className="underline">
+              {HeroSectionData.cta}
+            </Typography>
           </button>
         </IntroAnimation>
 
@@ -65,8 +74,10 @@ export const HeroSection = ({ talents, services }: IHeroSectionProps) => (
     <IntroAnimation className="container mx-auto px-4 mt-12 md:hidden space-y-4 flex flex-col items-baseline justify-baseline">
       <HeroFilter />
 
-      <button className="py-3 bg-transparent font-bold underline hover:opacity-90 transition text-[#FBFF23]">
-        {HeroSectionData.cta}
+      <button className="py-3 bg-transparent hover:opacity-90 transition">
+        <Typography as="span" weight="black" className="underline text-[#FBFF23]">
+          {HeroSectionData.cta}
+        </Typography>
       </button>
     </IntroAnimation>
 

@@ -1,5 +1,6 @@
 import { ITalents } from "@/types/talents";
 import Image from "next/image";
+import { Typography } from "../atoms/Typography";
 
 type Props = {
   talents: ITalents
@@ -25,21 +26,27 @@ export const HeroCard = ({ talents }: Props) => (
       <Image className="absolute bottom-0 right-18 z-50" src={talents.countryImageUrl} alt="Country" width={25} height={18} />
     </div>
 
-    {/* text : 18px weight : 900 line height: 150% */}
-    <h3 className="text-lg sm:text-xl font-black mt-4 md:text-2xl text-[#24252F]">{talents.name}</h3>
+    <Typography as="h3" variant="h3" weight="black" className="mt-4 text-[#24252F]">
+      {talents.name}
+    </Typography>
 
-    <p className="text-[#4A77FF] text-sm font-semibold mt-2">
-      {talents.role} · <span className="font-black">
-
-        {talents.experience}
-      </span>
-    </p>
+    <Typography
+      variant="caption"
+      weight="bold"
+      className="text-[#4A77FF] mt-2">
+      {talents.role} · <span className="font-black">{talents.experience}</span>
+    </Typography>
 
     <div className="flex flex-wrap gap-1.5 sm:gap-[4px] justify-center mt-4 sm:mt-6 md:mt-10">
       {talents.skills?.map((skill) => (
-        <span key={skill} className="bg-gray/40 border border-gray-[#C1C5CF] text-[11px] sm:text-sm px-3 py-1 rounded-md text-[#5E626F] font-black">
+        <Typography
+          key={skill}
+          as="span"
+          variant="caption"
+          weight="black"
+          className="bg-gray/40 border border-gray-[#C1C5CF] text-[11px] sm:text-sm px-3 py-1 rounded-md text-[#5E626F]">
           {skill}
-        </span>
+        </Typography>
       ))}
     </div>
   </div>

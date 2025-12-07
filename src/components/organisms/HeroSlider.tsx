@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight, CloudCog, LucideDollarSign } from 'lucide-re
 import { Bubble } from '../atoms/Bubble';
 import Image from 'next/image';
 import { ITalents } from '@/types/talents';
+import { Typography } from '../atoms/Typography';
 
 
 // sliding window should be [-1, 0, 1]
@@ -92,11 +93,13 @@ export const HeroSlider = ({ talents }: IHeroSliderProps) => {
 
               {isCenter && (
                 <Bubble className="absolute -top-10 md:top-20 lg:top-10 xl:-top-5 bg-white text-[#00C696] rounded-lg">
-                  <div className='bg-[#BBF32D] w-[26px] h-[26px] min-w-[26px] min-h-[26px] rounded-full flex talents-center justify-center'>
+                  <div className='bg-[#BBF32D] w-[26px] h-[26px] min-w-[26px] min-h-[26px] rounded-full flex items-center justify-center'>
                     <Image alt='dollar-sign' src={'/dollar.png'} width={12} height={12} />
                   </div>
 
-                  <h3 className="text-m md:text-xl font-black">{item.salary}</h3>
+                  <Typography as="h3" variant="h3" weight="black" className="text-base md:text-xl">
+                    {item.salary}
+                  </Typography>
                 </Bubble>
               )}
 

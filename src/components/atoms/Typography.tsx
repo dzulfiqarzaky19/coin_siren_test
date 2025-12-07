@@ -12,12 +12,12 @@ interface ITypographyProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const variantStyles: Record<TVariant, string> = {
-    h1: 'text-4xl md:text-5xl leading-tight',
+    h1: 'text-4xl md:text-5xl leading-[130%]',
     h2: 'text-3xl font-bold',
     h3: 'text-xl md:text-2xl', // Hero cards
-    body1: 'text-base md:text-lg',
+    body1: 'text-base md:text-lg leading-[150%]',
     body2: 'text-[14px]', // Footer items
-    caption: 'text-sm',
+    caption: 'text-sm leading-[150%]',
 };
 
 const weightStyles: Record<TWeight, string> = {
@@ -25,6 +25,7 @@ const weightStyles: Record<TWeight, string> = {
     bold: 'font-bold', // 700
     black: 'font-black', // 900
 };
+
 
 export const Typography = ({
     as: Component = 'p',

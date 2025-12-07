@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { ChevronDown, X } from 'lucide-react';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Typography } from '../atoms/Typography';
 
-// No changes needed based on current knowledge, ensuring file consistency.
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -23,20 +23,26 @@ export const Header = () => {
                         </div>
 
                         <div className="absolute top-full left-0 mt-2 w-[240px] bg-white rounded-lg shadow-xl text-gray-800 p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <h4 className="font-bold text-sm mb-3 text-gray-900">채용</h4>
-                            <ul className="space-y-3 text-sm text-gray-600">
-                                <li className="cursor-pointer hover:text-blue-600 font-medium">해외 개발자 원격 채용</li>
-                                <li className="cursor-pointer hover:text-blue-600 font-medium">외국인 원격 채용 (비개발 직군)</li>
-                                <li className="cursor-pointer hover:text-blue-600 font-medium">한국어 가능 외국인 채용</li>
+                            <Typography as="h4" variant="caption" weight="bold" className="mb-3 text-gray-900">
+                                채용
+                            </Typography>
+                            <ul className="space-y-3 text-gray-600">
+                                <Typography as="li" variant="caption" className="cursor-pointer hover:text-blue-600 font-medium">해외 개발자 원격 채용</Typography>
+                                <Typography as="li" variant="caption" className="cursor-pointer hover:text-blue-600 font-medium">외국인 원격 채용 (비개발 직군)</Typography>
+                                <Typography as="li" variant="caption" className="cursor-pointer hover:text-blue-600 font-medium">한국어 가능 외국인 채용</Typography>
                             </ul>
                         </div>
                     </div>
 
-                    <div className="font-bold cursor-pointer">해외 개발자 활용 서비스</div>
+                    <Typography as="div" variant="body2" weight="bold" className="cursor-pointer">
+                        해외 개발자 활용 서비스
+                    </Typography>
                 </nav>
 
-                <button className="hidden md:block bg-white text-[#4A77FF] px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
-                    문의하기
+                <button className="hidden md:block bg-white text-[#4A77FF] px-6 py-2 rounded-lg hover:bg-opacity-90 transition-colors">
+                    <Typography as="span" variant="body2" weight="bold">
+                        문의하기
+                    </Typography>
                 </button>
 
                 <button onClick={() => setIsOpen(!isOpen)} className={`md:hidden absolute right-4 ${!isOpen ? 'top-0' : 'top-6'} z-50`}>
@@ -57,19 +63,19 @@ export const Header = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.1 }}
                                     className="space-y-3">
-                                    <h4 className="font-bold text-xl text-gray-900 border-b pb-2 flex items-center justify-between">
+                                    <Typography as="h4" variant="h3" weight="bold" className="text-gray-900 border-b pb-2 flex items-center justify-between">
                                         채용
-                                    </h4>
+                                    </Typography>
                                     <ul className="space-y-4 pl-2 text-gray-600">
-                                        <li className="flex items-center gap-2 cursor-pointer hover:text-blue-600 font-medium text-lg">
+                                        <Typography as="li" variant="body1" className="flex items-center gap-2 cursor-pointer hover:text-blue-600 font-medium">
                                             해외 개발자 원격 채용
-                                        </li>
-                                        <li className="flex items-center gap-2 cursor-pointer hover:text-blue-600 font-medium text-lg">
+                                        </Typography>
+                                        <Typography as="li" variant="body1" className="flex items-center gap-2 cursor-pointer hover:text-blue-600 font-medium">
                                             외국인 원격 채용 (비개발 직군)
-                                        </li>
-                                        <li className="flex items-center gap-2 cursor-pointer hover:text-blue-600 font-medium text-lg">
+                                        </Typography>
+                                        <Typography as="li" variant="body1" className="flex items-center gap-2 cursor-pointer hover:text-blue-600 font-medium">
                                             한국어 가능 외국인 채용
-                                        </li>
+                                        </Typography>
                                     </ul>
                                 </motion.div>
 
@@ -77,16 +83,20 @@ export const Header = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
-                                    className="font-bold text-xl cursor-pointer text-gray-900 border-b pb-2">
-                                    해외 개발자 활용 서비스
+                                    className="border-b pb-2">
+                                    <Typography as="div" variant="h3" weight="bold" className="cursor-pointer text-gray-900">
+                                        해외 개발자 활용 서비스
+                                    </Typography>
                                 </motion.div>
 
                                 <motion.button
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3 }}
-                                    className="mt-4 bg-white text-[#4A77FF] border border-[#4A77FF] px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors w-[80%] text-lg">
-                                    문의하기
+                                    className="mt-4 bg-white text-[#4A77FF] border border-[#4A77FF] px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors w-[80%]">
+                                    <Typography as="span" variant="body1" weight="bold">
+                                        문의하기
+                                    </Typography>
                                 </motion.button>
                             </nav>
                         </motion.div>

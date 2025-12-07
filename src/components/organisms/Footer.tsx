@@ -1,5 +1,7 @@
 import { ICompany } from '@/types/company';
 import Image from 'next/image';
+import { Typography } from '../atoms/Typography';
+import { ArrowRightSquare } from 'lucide-react';
 
 interface IFooterSectionProps {
   company: ICompany;
@@ -38,61 +40,97 @@ export const Footer = ({ company }: IFooterSectionProps) => {
           <div className="space-y-4 lg:col-span-4">
             <div className="flex gap-1 items-center">
               <Image src={'/hyperhire-logo.ico'} alt="Hyperhire Logo" width={50} height={50} />
-              <h2 className="text-3xl font-bold text-[#2F2D2E]">{company.name.en}</h2>
+              <Typography as="h2" variant="h2" className="text-[#2F2D2E]">
+                {company.name.en}
+              </Typography>
             </div>
 
-            <p className="text-[#343741] font-black text-[14px]">{company.jargon}</p>
-            <p className="text-[#5E626F] font-black text-[14px]">{company.phone}</p>
-            <p className="text-[#5E626F] font-black text-[14px]">{company.email}</p>
+            <Typography variant="body2" weight="black" className="text-[#343741]">
+              {company.jargon}
+            </Typography>
+            <Typography variant="body2" weight="black" className="text-[#5E626F]">
+              {company.phone}
+            </Typography>
+            <Typography variant="body2" weight="black" className="text-[#5E626F]">
+              {company.email}
+            </Typography>
           </div>
 
           <div className="lg:col-span-8 rounded-lg grid gap-4 grid-cols-[repeat(auto-fit,minmax(172px,1fr))]">
-            {Object.values(SERVICE_CATEGORIES).map((service, index) => (
-              <div
-                key={index}
-                className="flex flex-col justify-between gap-4 items-baseline bg-white p-4">
-                <div className="bg-[#EFF1F6] w-10 h-10 p-2 grid place-items-center rounded-lg">
-
-                  <Image src={service.icon} alt={service.kr} width={40} height={40} />
+            {Object.values(SERVICE_CATEGORIES).map((category) => (
+              <div key={category.en} className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+                <div className="bg-[#EFF1F6] p-2 w-fit rounded-lg mb-3">
+                  <Image src={category.icon} alt={category.en} width={24} height={24} />
                 </div>
-                <div className="text-[14px] text-[#343741] font-black">{service.kr}</div>
-
-                <button className="flex text-[#5E626F] text-[14px] justify-center items-center gap-2">
-                  바로가기
-                  <Image src={'/arrow-right-square.png'} alt="Arrow Right Square" width={20} height={20} />
-                </button>
+                <Typography variant="body2" weight="black" className="text-[#343741] mb-2">
+                  {category.kr}
+                </Typography>
+                <div className="flex items-center gap-2 cursor-pointer text-[#5E626F]">
+                  <Typography variant="body2" weight="black">
+                    바로가기
+                  </Typography>
+                  <ArrowRightSquare className="w-5 h-5" />
+                </div>
               </div>
             ))}
           </div>
+        </div>
 
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-start">
           <div className="lg:col-span-4 flex gap-2 sm:gap-8">
             <div className="flex flex-col gap-1">
-              <h3 className="font-black mb-4 text-[#343741]">상호명</h3>
-              <p className="font-black text-[#5E626F]">{company.name.kr}</p>
-              <p className="font-black text-[#5E626F]">{company.name.in}</p>
+              <Typography variant="body2" weight="black" className="mb-4 text-[#343741]">
+                상호명
+              </Typography>
+              <Typography variant="body2" weight="black" className="text-[#5E626F]">
+                {company.name.kr}
+              </Typography>
+              <Typography variant="body2" weight="black" className="text-[#5E626F]">
+                {company.name.in}
+              </Typography>
             </div>
 
             <div className="flex flex-col gap-1">
-              <h3 className="font-black mb-4 text-[#343741]">대표 CEO</h3>
-              <p className="font-black   text-[#5E626F]">{company.ceo.kr}</p>
-              <p className="font-black text-[#5E626F]">{company.ceo.en}</p>
+              <Typography variant="body2" weight="black" className="mb-4 text-[#343741]">
+                대표 CEO
+              </Typography>
+              <Typography variant="body2" weight="black" className="text-[#5E626F]">
+                {company.ceo.kr}
+              </Typography>
+              <Typography variant="body2" weight="black" className="text-[#5E626F]">
+                {company.ceo.en}
+              </Typography>
             </div>
           </div>
 
           <div className="flex flex-col gap-1 lg:col-span-2">
-            <h3 className="font-black mb-4 text-[#343741]">사업자등록번호 CIN</h3>
-            <p className="font-black text-[#5E626F]">{company.CIN.kr}</p>
-            <p className="font-black text-[#5E626F]">{company.CIN.in}</p>
+            <Typography variant="body2" weight="black" className="mb-4 text-[#343741]">
+              사업자등록번호 CIN
+            </Typography>
+            <Typography variant="body2" weight="black" className="text-[#5E626F]">
+              {company.CIN.kr}
+            </Typography>
+            <Typography variant="body2" weight="black" className="text-[#5E626F]">
+              {company.CIN.in}
+            </Typography>
           </div>
 
           <div className="flex flex-col gap-1 lg:col-span-6">
-            <h3 className="font-black mb-4 text-[#343741]">주소 ADDRESS</h3>
-            <p className="font-black text-[#5E626F]">{company.address.kr}</p>
-            <p className="font-black text-[#5E626F]">{company.address.in}</p>
+            <Typography variant="body2" weight="black" className="mb-4 text-[#343741]">
+              주소 ADDRESS
+            </Typography>
+            <Typography variant="body2" weight="black" className="text-[#5E626F]">
+              {company.address.kr}
+            </Typography>
+            <Typography variant="body2" weight="black" className="text-[#5E626F]">
+              {company.address.in}
+            </Typography>
           </div>
         </div>
 
-        <div className="mt-10 font-black text-[#5E626F] text-sm">&copy; 2023 {company.name.en}</div>
+        <Typography variant="caption" weight="black" className="mt-10 text-[#5E626F]">
+          &copy; 2023 {company.name.en}
+        </Typography>
       </div>
     </section>
   );
