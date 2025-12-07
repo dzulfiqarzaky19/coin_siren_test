@@ -8,15 +8,7 @@ import { ITalents } from '@/types/talents';
 import { IServices } from '@/types/services';
 import { Typography } from '../atoms/Typography';
 
-const HeroSectionData = {
-  topLabel: '풀타임, 파트타임',
-  title: {
-    a: '최고의 실력을 가진',
-    b: '외국인 인재를 찾고 계신가요?',
-  },
-  description: '법률 및 인사관리 부담없이 1주일 이내에 원격으로 채용해보세요.',
-  cta: '개발자가 필요하신가요?',
-};
+import { HERO_SECTION_DATA as HeroSectionData } from '@/constants/hero';
 
 interface IHeroSectionProps {
   talents: ITalents[];
