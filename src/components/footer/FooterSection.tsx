@@ -60,9 +60,9 @@ export const FooterSection = ({ data }: IFooterSectionProps) => {
       <div className="container mx-auto px-4 space-y-16">
         <div className="grid gap-8 items-start grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))]">
           <div className="space-y-4">
-            <div className="flex gap-1">
-              <div className="rounded-full w-[51.32px] h-[34px] bg-slate-500"></div>
-              <h2 className="text-3xl font-bold mb-2">{FOOTER_SECTION_DATA.company.name.en}</h2>
+            <div className="flex gap-1 items-center">
+              <Image src={'/hyperhire-logo.ico'} alt="Hyperhire Logo" width={50} height={50} />
+              <h2 className="text-3xl font-bold">{FOOTER_SECTION_DATA.company.name.en}</h2>
             </div>
 
             <p className="text-black font-black text-[14px]">{FOOTER_SECTION_DATA.company.jargon}</p>

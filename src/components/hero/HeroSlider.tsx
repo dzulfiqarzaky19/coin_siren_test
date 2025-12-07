@@ -14,7 +14,8 @@ type Candidate = {
   experience: string;
   skills: string[];
   salary: string;
-  image?: string;
+  imageUrl: string;
+  countryImageUrl: string;
 };
 
 // our sliding window is -1, 0, 1
@@ -76,7 +77,7 @@ export default function HeroSlider({ items }: { items: Candidate[] }) {
           return (
             <React.Fragment key={item.id}>
               {isCenter && (
-                <Bubble className="absolute top-0 md:-top-5 bg-white text-[#00C696] rounded-lg">
+                <Bubble className="absolute top-0 bg-white text-[#00C696] rounded-lg">
                   <LucideDollarSign className="bg-[#BBF32D] rounded-full" stroke="#00C696" width={26} height={26} />
 
                   <h3 className="text-xl font-bold">{item.salary}</h3>

@@ -2,8 +2,9 @@
 // import { TCategory } from '@/types/categories';
 // import { Product } from '@/types/product';
 
+import { HeaderSection } from '@/components/header/HeaderSection';
+import { HeroSection } from '@/components/hero/HeroSection';
 import { FooterSection } from '@/components/footer/FooterSection';
-import HeroSection from '@/components/hero/HeroSection';
 
 async function getProducts() {
   const res = await fetch('http://localhost:3000/api/products', {
@@ -22,6 +23,8 @@ export default async function Home() {
 
   return (
     <main>
+      <HeaderSection />
+
       <HeroSection />
 
       {/* <BannerCarousel banners={banners} />
