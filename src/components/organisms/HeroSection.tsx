@@ -1,7 +1,7 @@
 import { HeroStats } from '../molecules/HeroStats';
 import { HeroSlider } from './HeroSlider';
 import { IntroAnimation } from '../atoms/IntroAnimation';
-import { HeroCategory } from './HeroCategory';
+import { HeroServices } from '../molecules/HeroServices';
 import { HeroFilter } from '../molecules/HeroFilter';
 import { Bubble } from '../atoms/Bubble';
 import { ITalents } from '@/types/talents';
@@ -75,6 +75,6 @@ export const HeroSection = ({ talents, services }: IHeroSectionProps) => (
       </button>
     </IntroAnimation>
 
-    <HeroCategory services={services} />
+    <HeroServices servicesProps={services} />
   </section>
 );
