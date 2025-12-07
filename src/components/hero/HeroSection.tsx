@@ -84,8 +84,12 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 sm:flex">
         <div className="sm:w-1/2 mt-12">
           <IntroAnimation animation="fadeInUp" delay={0.3}>
-            <Bubble className="mb-5" arrowPosition="left">
-              <div className="text-[#40E2E8] text-s bg-white font-semibold px-3 py-1 rounded-lg">
+            <Bubble
+              className="mb-5"
+              bubbleClassName="bg-[#8BC4FF] sm:bg-white before:bg-[#8BC4FF] before:sm:bg-white"
+              arrowPosition="left">
+
+              <div className="text-white  sm:text-[#40E2E8] text-s font-semibold px-3 py-1 rounded-lg">
                 {HeroSection.topLabel}
               </div>
             </Bubble>
