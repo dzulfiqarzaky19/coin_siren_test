@@ -1,22 +1,29 @@
 import { HeaderSection } from '@/components/header/HeaderSection';
 import { HeroSection } from '@/components/hero/HeroSection';
 import { FooterSection } from '@/components/footer/FooterSection';
+import { Suspense } from 'react';
 
 
 export default async function Home() {
-  const [banners, categories, footer] = await Promise.all([
-    fetch('http://localhost:3000/api/banners', { cache: 'no-store' }).then((r) => r.json()),
-    fetch('http://localhost:3000/api/categories', { cache: 'no-store' }).then((r) => r.json()),
-    fetch('http://localhost:3000/api/footer', { cache: 'no-store' }).then((r) => r.json()),
+  const [talents, services, company] = await Promise.all([
+    fetch('http://localhost:3000/api/talents', { cache: 'no-store' }).then((r) => r.json()),
+    fetch('http://localhost:3000/api/services', { cache: 'no-store' }).then((r) => r.json()),
+    fetch('http://localhost:3000/api/company', { cache: 'no-store' }).then((r) => r.json()),
   ]);
+
+  console.log({ services }, 123)
 
   return (
     <main>
       <HeaderSection />
 
-      <HeroSection />
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeroSection talents={talents} services={services} />
+      </Suspense>
 
-      <FooterSection data={footer} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <FooterSection company={company} />
+      </Suspense>
     </main>
   );
 }

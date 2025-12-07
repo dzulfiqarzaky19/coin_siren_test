@@ -2,36 +2,32 @@
 
 import { motion, wrap } from 'framer-motion';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import HeroCard from './HeroCard';
+import { HeroCard } from './HeroCard';
 import { IntroAnimation } from '../ui/animation/IntroAnimation';
 import { ChevronLeft, ChevronRight, CloudCog, LucideDollarSign } from 'lucide-react';
 import { Bubble } from '../ui/Bubble';
 import Image from 'next/image';
+import { ITalents } from '@/types/talents';
 
-type Candidate = {
-  id: string;
-  name: string;
-  role: string;
-  experience: string;
-  skills: string[];
-  salary: string;
-  imageUrl: string;
-  countryImageUrl: string;
-};
 
 // sliding window should be [-1, 0, 1]
 // so the visible range is <= 1
 const VISIBLE_RANGE = 1;
 
-export const HeroSlider = ({ items }: { items: Candidate[] }) => {
+interface IHeroSliderProps {
+  talents: ITalents[]
+}
+
+export const HeroSlider = ({ talents }: IHeroSliderProps) => {
   const [index, setIndex] = useState(0);
   const [width, setWidth] = useState(0);
+
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
 
-  const total = useMemo(() => items.length, [items]);
+  const total = useMemo(() => talents?.length || 0, [talents]);
 
   const next = useCallback(() => {
     setIndex((i) => i + 1);
@@ -58,7 +54,7 @@ export const HeroSlider = ({ items }: { items: Candidate[] }) => {
       </button>
 
       <div className="h-[360px] md:h-[500px] flex items-center justify-center overflow-hidden">
-        {items.map((item, i) => {
+        {talents?.map((item, i) => {
           const virtualIndex = wrap(0, total, index);
           const offset = wrap(-1, total - 1, i - virtualIndex);
 
@@ -91,12 +87,12 @@ export const HeroSlider = ({ items }: { items: Candidate[] }) => {
                 damping: 22,
                 delay: i * 0.05,
               }}>
-              <HeroCard data={item} />
+
+              <HeroCard talents={item} />
 
               {isCenter && (
-
                 <Bubble className="absolute -top-10 md:top-20 lg:top-10 xl:-top-5 bg-white text-[#00C696] rounded-lg">
-                  <div className='bg-[#BBF32D] w-[26px] h-[26px] min-w-[26px] min-h-[26px] rounded-full flex items-center justify-center'>
+                  <div className='bg-[#BBF32D] w-[26px] h-[26px] min-w-[26px] min-h-[26px] rounded-full flex talents-center justify-center'>
                     <Image alt='dollar-sign' src={'/dollar.png'} width={12} height={12} />
                   </div>
 

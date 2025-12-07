@@ -3,19 +3,10 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { IntroAnimation } from '../ui/animation/IntroAnimation';
 import Image from 'next/image';
+import { IServices } from '@/types/services';
 
-const categoriesDummy = [
-  { id: 1, title: '해외 마케팅', icon: '/icon-marketing.png' },
-  { id: 2, title: '퍼블리셔', icon: '/icon-image.png' },
-  { id: 3, title: '개발자(제도사)', icon: '/icon-box.png' },
-  { id: 4, title: '해외 세일즈', icon: '/icon-target.png' },
-  { id: 5, title: '해외 CS', icon: '/icon-call.png' },
-  {
-    id: 6, title: '해외 마케팅', icon: '/icon-presentation.png'
-  },
-];
 
-const DELAY = 5000; // 5 seconds
+const DELAY = 5000;
 const LEFT_PADDING = `
   pl-4 
   sm:pl-[calc((100vw-640px)/2+1rem)] 
@@ -25,29 +16,40 @@ const LEFT_PADDING = `
   2xl:pl-[calc((100vw-1536px)/2+1rem)]
 `
 
-export const HeroCategory = () => {
-  const [categories, setCategories] = useState(categoriesDummy);
+interface IHeroCategoryProps {
+  services: IServices[]
+}
+
+export const HeroCategory = ({ services }: IHeroCategoryProps) => {
+  const [categories, setCategories] = useState(services);
+
 
   useEffect(() => {
+    if (!services || services?.length === 0) return;
+
     const swapDelay = setInterval(() => {
       setCategories((prev) => {
         if (prev.length === 0) return prev;
 
         const newCategories = [...prev];
         const last = newCategories.pop();
+
         if (!last) return prev;
 
         newCategories.unshift(last);
+
         return newCategories;
       });
     }, DELAY);
 
     return () => clearInterval(swapDelay);
-  }, []);
+  }, [services]);
+
+  if (!categories?.length) return null;
 
   return (
     <IntroAnimation className={`hidden sm:visible mt-20 sm:flex overflow-x-auto scrollbar-hidden flex-nowrap gap-2.5 ${LEFT_PADDING}`}>
-      {categories.map((category) => (
+      {categories?.map((category) => (
         <motion.div
           layout
           key={category.id}

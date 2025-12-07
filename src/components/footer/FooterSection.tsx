@@ -1,35 +1,11 @@
-import { Product } from '@/types/product';
-import { ArrowRightSquare } from 'lucide-react';
+import { ICompany } from '@/types/company';
 import Image from 'next/image';
 
 interface IFooterSectionProps {
-  data: Product; // Adjust the type as per your data structure
+  company: ICompany;
 }
 
-const FOOTER_SECTION_DATA = {
-  company: {
-    name: {
-      en: 'hyperhire',
-      kr: '하이퍼하이어',
-      in: 'Hyperhire India Private Limited',
-    },
-    ceo: {
-      kr: '김주현',
-      en: 'Juhyun Kim',
-    },
-    jargon: '우리는 국가의 장벽을 넘어 최고의 인재를 매칭해드립니다.',
-    phone: '010-0000-0000',
-    email: 'aaaaa@naver.com',
-    CIN: {
-      kr: '427-86-01187',
-      in: 'U74110DL2016PTC290812',
-    },
-    address: {
-      kr: '서울특별시 강남대로 479, 지하 1층 238호 ',
-      in: 'D-138, Street number 11, Jagjeet Nagar, North East Delhi, New Delhi, 110053 India',
-    },
-  },
-};
+
 
 const SERVICE_CATEGORIES = {
   remoteOverseasDevelopers: {
@@ -54,7 +30,7 @@ const SERVICE_CATEGORIES = {
   },
 };
 
-export const FooterSection = ({ data }: IFooterSectionProps) => {
+export const FooterSection = ({ company }: IFooterSectionProps) => {
   return (
     <section className=" bg-[#FBFBFB] py-20">
       <div className="container mx-auto px-4 space-y-16">
@@ -62,12 +38,12 @@ export const FooterSection = ({ data }: IFooterSectionProps) => {
           <div className="space-y-4 lg:col-span-4">
             <div className="flex gap-1 items-center">
               <Image src={'/hyperhire-logo.ico'} alt="Hyperhire Logo" width={50} height={50} />
-              <h2 className="text-3xl font-bold text-[#2F2D2E]">{FOOTER_SECTION_DATA.company.name.en}</h2>
+              <h2 className="text-3xl font-bold text-[#2F2D2E]">{company.name.en}</h2>
             </div>
 
-            <p className="text-[#343741] font-black text-[14px]">{FOOTER_SECTION_DATA.company.jargon}</p>
-            <p className="text-[#5E626F] font-black text-[14px]">{FOOTER_SECTION_DATA.company.phone}</p>
-            <p className="text-[#5E626F] font-black text-[14px]">{FOOTER_SECTION_DATA.company.email}</p>
+            <p className="text-[#343741] font-black text-[14px]">{company.jargon}</p>
+            <p className="text-[#5E626F] font-black text-[14px]">{company.phone}</p>
+            <p className="text-[#5E626F] font-black text-[14px]">{company.email}</p>
           </div>
 
           <div className="lg:col-span-8 rounded-lg grid gap-4 grid-cols-[repeat(auto-fit,minmax(172px,1fr))]">
@@ -92,31 +68,31 @@ export const FooterSection = ({ data }: IFooterSectionProps) => {
           <div className="lg:col-span-4 flex gap-2 sm:gap-8">
             <div className="flex flex-col gap-1">
               <h3 className="font-black mb-4 text-[#343741]">상호명</h3>
-              <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.name.kr}</p>
-              <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.name.in}</p>
+              <p className="font-black text-[#5E626F]">{company.name.kr}</p>
+              <p className="font-black text-[#5E626F]">{company.name.in}</p>
             </div>
 
             <div className="flex flex-col gap-1">
               <h3 className="font-black mb-4 text-[#343741]">대표 CEO</h3>
-              <p className="font-black   text-[#5E626F]">{FOOTER_SECTION_DATA.company.ceo.kr}</p>
-              <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.ceo.en}</p>
+              <p className="font-black   text-[#5E626F]">{company.ceo.kr}</p>
+              <p className="font-black text-[#5E626F]">{company.ceo.en}</p>
             </div>
           </div>
 
           <div className="flex flex-col gap-1 lg:col-span-2">
             <h3 className="font-black mb-4 text-[#343741]">사업자등록번호 CIN</h3>
-            <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.CIN.kr}</p>
-            <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.CIN.in}</p>
+            <p className="font-black text-[#5E626F]">{company.CIN.kr}</p>
+            <p className="font-black text-[#5E626F]">{company.CIN.in}</p>
           </div>
 
           <div className="flex flex-col gap-1 lg:col-span-6">
             <h3 className="font-black mb-4 text-[#343741]">주소 ADDRESS</h3>
-            <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.address.kr}</p>
-            <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.address.in}</p>
+            <p className="font-black text-[#5E626F]">{company.address.kr}</p>
+            <p className="font-black text-[#5E626F]">{company.address.in}</p>
           </div>
         </div>
 
-        <div className="mt-10 font-black text-[#5E626F] text-sm">&copy; 2023 {FOOTER_SECTION_DATA.company.name.en}</div>
+        <div className="mt-10 font-black text-[#5E626F] text-sm">&copy; 2023 {company.name.en}</div>
       </div>
     </section>
   );
