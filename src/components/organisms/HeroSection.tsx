@@ -1,5 +1,5 @@
 import { HeroStats } from '../molecules/HeroStats';
-import { HeroSlider } from './HeroSlider';
+import { HeroSlider } from '../molecules/HeroSlider';
 import { IntroAnimation } from '../atoms/IntroAnimation';
 import { HeroServices } from '../molecules/HeroServices';
 import { HeroFilter } from '../molecules/HeroFilter';
