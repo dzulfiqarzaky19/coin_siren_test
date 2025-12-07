@@ -19,7 +19,7 @@ type CompanyAddress = {
   in: string;
 };
 
-export interface Company {
+export interface ICompany {
   name: CompanyName;
   ceo: CompanyCEO;
   jargon: string;
