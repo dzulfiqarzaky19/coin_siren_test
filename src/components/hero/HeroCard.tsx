@@ -40,7 +40,7 @@ export default function HeroCard({ data }: Props) {
 
       <div className="flex flex-wrap gap-1.5 sm:gap-[4px] justify-center mt-4 sm:mt-6 md:mt-10">
         {data.skills.map((skill) => (
-          <span key={skill} className="bg-gray-100 border border-gray-300 text-xs px-3 py-1 rounded-sm">
+          <span key={skill} className="bg-gray-100 border border-gray-300 text-[11px] sm:text-sm px-3 py-1 rounded-sm">
             {skill}
           </span>
         ))}

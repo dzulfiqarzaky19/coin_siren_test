@@ -1,5 +1,5 @@
 import { Product } from '@/types/product';
-import { ArrowRightSquare, CodeXml, Settings, UserRound } from 'lucide-react';
+import { ArrowRightSquare } from 'lucide-react';
 import Image from 'next/image';
 
 interface IFooterSectionProps {
@@ -35,22 +35,22 @@ const SERVICE_CATEGORIES = {
   remoteOverseasDevelopers: {
     kr: '해외 개발자 원격 채용',
     en: 'Remote hiring of overseas developers',
-    icon: CodeXml,
+    icon: '/footer-code.png',
   },
   remoteForeignNonDev: {
     kr: '외국인 원격 채용 (비개발)',
     en: 'Remote hiring of foreign workers (non-developer roles)',
-    icon: UserRound,
+    icon: '/footer-user.png',
   },
   koreanSpeakingForeignTalent: {
     kr: '한국어 가능 외국인 채용',
     en: 'Hiring foreign talent proficient in Korean',
-    icon: '/kor.svg',
+    icon: '/footer-KOR.png',
   },
   overseasDevServices: {
     kr: '해외 개발자 활용 서비스',
     en: 'Service for utilizing overseas developers',
-    icon: Settings,
+    icon: '/footer-setting.png',
   },
 };
 
@@ -76,17 +76,14 @@ export const FooterSection = ({ data }: IFooterSectionProps) => {
                 key={index}
                 className="flex flex-col justify-between gap-4 items-baseline bg-white p-4 rounded-xl shadow">
                 <div className="bg-[#EFF1F6] w-10 h-10 p-2 grid place-items-center rounded-lg">
-                  {typeof service.icon === 'string' ? (
-                    <Image src={service.icon} alt={service.kr} width={40} height={40} />
-                  ) : (
-                    <service.icon className="w-6 h-6" stroke="#7A8FAD" />
-                  )}
+
+                  <Image src={service.icon} alt={service.kr} width={40} height={40} />
                 </div>
                 <div className="text-[14px] text-black font-black">{service.kr}</div>
 
-                <button className="flex text-[#5E626F] justify-center items-center gap-2">
+                <button className="flex text-[#5E626F] text-[14px] justify-center items-center gap-2">
                   바로가기
-                  <ArrowRightSquare className="w-6 h-6 inline-block ml-1" />
+                  <Image src={'/arrow-right-square.png'} alt="Arrow Right Square" width={20} height={20} />
                 </button>
               </div>
             ))}

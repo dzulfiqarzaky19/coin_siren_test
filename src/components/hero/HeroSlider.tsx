@@ -45,14 +45,14 @@ export default function HeroSlider({ items }: { items: Candidate[] }) {
       <button
         onClick={prev}
         className="absolute -left-2 sm:left-0 top-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 
-        p-2 sm:p-3 rounded-full hover:bg-white/60 cursor-pointer flex items-center justify-center">
+        rounded-full cursor-pointer flex items-center justify-center">
         <ChevronLeft className="w-6 h-6" />
       </button>
 
       <button
         onClick={next}
         className="absolute -right-2 sm:right-0 top-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 
-        p-2 sm:p-3 rounded-full hover:bg-white/60 cursor-pointer flex items-center justify-center">
+        rounded-full cursor-pointer flex items-center justify-center">
         <ChevronRight className="w-6 h-6" />
       </button>
 
@@ -80,7 +80,7 @@ export default function HeroSlider({ items }: { items: Candidate[] }) {
                 <Bubble className="absolute top-0 bg-white text-[#00C696] rounded-lg">
                   <LucideDollarSign className="bg-[#BBF32D] rounded-full" stroke="#00C696" width={26} height={26} />
 
-                  <h3 className="text-xl font-bold">{item.salary}</h3>
+                  <h3 className="text-m sm:text-xl font-bold">{item.salary}</h3>
                 </Bubble>
               )}
 
