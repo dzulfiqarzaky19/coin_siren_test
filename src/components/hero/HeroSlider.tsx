@@ -1,11 +1,11 @@
 'use client';
 
 import { motion, wrap } from 'framer-motion';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import HeroCard from './HeroCard';
-import { IntroAnimation } from '../UI/animation/IntroAnimation';
+import { IntroAnimation } from '../ui/animation/IntroAnimation';
 import { ChevronLeft, ChevronRight, LucideDollarSign } from 'lucide-react';
-import { Bubble } from '../UI/Bubble';
+import { Bubble } from '../ui/Bubble';
 
 type Candidate = {
   id: string;
@@ -23,6 +23,11 @@ const VISIBLE_RANGE = 1;
 
 export default function HeroSlider({ items }: { items: Candidate[] }) {
   const [index, setIndex] = useState(0);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
 
   const total = useMemo(() => items.length, [items]);
 
@@ -35,26 +40,25 @@ export default function HeroSlider({ items }: { items: Candidate[] }) {
   }, [setIndex]);
 
   return (
-    <IntroAnimation className="relative w-full  mx-auto py-10">
+    <IntroAnimation className="mt-12 sm:mt-0 w-full sm:w-xl flex justify-center relative mx-auto">
       <button
         onClick={prev}
-        className="absolute left-0 top-1/2 z-30 w-12 h-12 
-        p-3 rounded-full hover:bg-white/60 cursor-pointer">
+        className="absolute -left-2 sm:left-0 top-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 
+        p-2 sm:p-3 rounded-full hover:bg-white/60 cursor-pointer flex items-center justify-center">
         <ChevronLeft className="w-6 h-6" />
       </button>
 
       <button
         onClick={next}
-        className="absolute right-0 top-1/2 z-30 
-        p-3 rounded-full hover:bg-white/60 w-12 h-12 cursor-pointer">
+        className="absolute -right-2 sm:right-0 top-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 
+        p-2 sm:p-3 rounded-full hover:bg-white/60 cursor-pointer flex items-center justify-center">
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      <div className="h-[360px] flex items-center justify-center overflow-hidden">
+      <div className="h-[360px] md:h-[500px] flex items-center justify-center overflow-hidden">
         {items.map((item, i) => {
           const virtualIndex = wrap(0, total, index);
           const offset = wrap(-1, total - 1, i - virtualIndex);
-          const width = window.innerWidth;
 
           const isInsideWindow = Math.abs(offset) <= VISIBLE_RANGE;
           const isCenter = offset === 0;

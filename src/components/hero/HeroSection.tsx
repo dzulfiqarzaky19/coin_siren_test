@@ -1,9 +1,9 @@
 import HeroStats from './HeroStats';
 import HeroSlider from './HeroSlider';
-import { IntroAnimation } from '../UI/animation/IntroAnimation';
+import { IntroAnimation } from '../ui/animation/IntroAnimation';
 import { HeroCategory } from './HeroCategory';
 import { HeroFilter } from './HeroFilter';
-import { Bubble } from '../UI/Bubble';
+import { Bubble } from '../ui/Bubble';
 
 export default function HeroSection() {
   const HeroSection = {
@@ -99,9 +99,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-12 flex sm:w-2xl justify-center ">
-          <HeroSlider items={filteredData} />
-        </div>
+        <HeroSlider items={filteredData} />
       </div>
 
       <div className="container mx-auto px-4 mt-12 sm:hidden space-y-4 flex flex-col items-baseline justify-baseline">
