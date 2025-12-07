@@ -32,15 +32,19 @@ export default function HeroCard({ data }: Props) {
         <Image className="absolute bottom-0 right-18 z-50" src={data.countryImageUrl} alt="Country" width={25} height={18} />
       </div>
 
-      <h3 className="text-lg sm:text-xl font-bold mt-4 md:text-2xl">{data.name}</h3>
+      {/* text : 18px weight : 900 line height: 150% */}
+      <h3 className="text-lg sm:text-xl font-black mt-4 md:text-2xl text-[#24252F]">{data.name}</h3>
 
-      <p className="text-blue-600 text-sm font-semibold mt-2">
-        {data.role} · {data.experience}
+      <p className="text-[#4A77FF] text-sm font-semibold mt-2">
+        {data.role} · <span className="font-black">
+
+          {data.experience}
+        </span>
       </p>
 
       <div className="flex flex-wrap gap-1.5 sm:gap-[4px] justify-center mt-4 sm:mt-6 md:mt-10">
         {data.skills.map((skill) => (
-          <span key={skill} className="bg-gray-100 border border-gray-300 text-[11px] sm:text-sm px-3 py-1 rounded-sm">
+          <span key={skill} className="bg-gray/40 border border-gray-[#C1C5CF] text-[11px] sm:text-sm px-3 py-1 rounded-md text-[#5E626F] font-black">
             {skill}
           </span>
         ))}

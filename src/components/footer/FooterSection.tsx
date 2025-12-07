@@ -56,30 +56,30 @@ const SERVICE_CATEGORIES = {
 
 export const FooterSection = ({ data }: IFooterSectionProps) => {
   return (
-    <section className=" bg-[#FBFBFB] py-10">
+    <section className=" bg-[#FBFBFB] py-20">
       <div className="container mx-auto px-4 space-y-16">
-        <div className="grid gap-8 items-start grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))]">
-          <div className="space-y-4">
+        <div className="grid gap-16 items-start grid-cols-1 lg:grid-cols-12">
+          <div className="space-y-4 lg:col-span-4">
             <div className="flex gap-1 items-center">
               <Image src={'/hyperhire-logo.ico'} alt="Hyperhire Logo" width={50} height={50} />
-              <h2 className="text-3xl font-bold">{FOOTER_SECTION_DATA.company.name.en}</h2>
+              <h2 className="text-3xl font-bold text-[#2F2D2E]">{FOOTER_SECTION_DATA.company.name.en}</h2>
             </div>
 
-            <p className="text-black font-black text-[14px]">{FOOTER_SECTION_DATA.company.jargon}</p>
-            <p className="text-black font-black text-[14px]">{FOOTER_SECTION_DATA.company.phone}</p>
-            <p className="text-black font-black text-[14px]">{FOOTER_SECTION_DATA.company.email}</p>
+            <p className="text-[#343741] font-black text-[14px]">{FOOTER_SECTION_DATA.company.jargon}</p>
+            <p className="text-[#5E626F] font-black text-[14px]">{FOOTER_SECTION_DATA.company.phone}</p>
+            <p className="text-[#5E626F] font-black text-[14px]">{FOOTER_SECTION_DATA.company.email}</p>
           </div>
 
-          <div className="rounded-lg grid gap-4 grid-cols-[repeat(auto-fit,minmax(172px,1fr))]">
+          <div className="lg:col-span-8 rounded-lg grid gap-4 grid-cols-[repeat(auto-fit,minmax(172px,1fr))]">
             {Object.values(SERVICE_CATEGORIES).map((service, index) => (
               <div
                 key={index}
-                className="flex flex-col justify-between gap-4 items-baseline bg-white p-4 rounded-xl shadow">
+                className="flex flex-col justify-between gap-4 items-baseline bg-white p-4">
                 <div className="bg-[#EFF1F6] w-10 h-10 p-2 grid place-items-center rounded-lg">
 
                   <Image src={service.icon} alt={service.kr} width={40} height={40} />
                 </div>
-                <div className="text-[14px] text-black font-black">{service.kr}</div>
+                <div className="text-[14px] text-[#343741] font-black">{service.kr}</div>
 
                 <button className="flex text-[#5E626F] text-[14px] justify-center items-center gap-2">
                   바로가기
@@ -88,35 +88,35 @@ export const FooterSection = ({ data }: IFooterSectionProps) => {
               </div>
             ))}
           </div>
+
+          <div className="lg:col-span-4 flex gap-2 sm:gap-8">
+            <div className="flex flex-col gap-1">
+              <h3 className="font-black mb-4 text-[#343741]">상호명</h3>
+              <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.name.kr}</p>
+              <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.name.in}</p>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <h3 className="font-black mb-4 text-[#343741]">대표 CEO</h3>
+              <p className="font-black   text-[#5E626F]">{FOOTER_SECTION_DATA.company.ceo.kr}</p>
+              <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.ceo.en}</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-1 lg:col-span-2">
+            <h3 className="font-black mb-4 text-[#343741]">사업자등록번호 CIN</h3>
+            <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.CIN.kr}</p>
+            <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.CIN.in}</p>
+          </div>
+
+          <div className="flex flex-col gap-1 lg:col-span-6">
+            <h3 className="font-black mb-4 text-[#343741]">주소 ADDRESS</h3>
+            <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.address.kr}</p>
+            <p className="font-black text-[#5E626F]">{FOOTER_SECTION_DATA.company.address.in}</p>
+          </div>
         </div>
 
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))]">
-          <div className="flex flex-col gap-1">
-            <h3 className="font-bold mb-4">상호명</h3>
-            <p className="font-bold">{FOOTER_SECTION_DATA.company.name.kr}</p>
-            <p className="font-bold">{FOOTER_SECTION_DATA.company.name.in}</p>
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <h3 className="font-semibold mb-4">대표 CEO</h3>
-            <p className="font-bold">{FOOTER_SECTION_DATA.company.ceo.kr}</p>
-            <p className="font-bold">{FOOTER_SECTION_DATA.company.ceo.en}</p>
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <h3 className="font-semibold mb-4">사업자등록번호 CIN</h3>
-            <p className="font-bold">{FOOTER_SECTION_DATA.company.CIN.kr}</p>
-            <p className="font-bold">{FOOTER_SECTION_DATA.company.CIN.in}</p>
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <h3 className="font-semibold mb-4">주소 ADDRESS</h3>
-            <p className="font-bold">{FOOTER_SECTION_DATA.company.address.kr}</p>
-            <p className="font-bold">{FOOTER_SECTION_DATA.company.address.in}</p>
-          </div>
-        </div>
-
-        <div className="mt-10 font-black text-black text-sm">&copy; 2023 {FOOTER_SECTION_DATA.company.name.en}</div>
+        <div className="mt-10 font-black text-[#5E626F] text-sm">&copy; 2023 {FOOTER_SECTION_DATA.company.name.en}</div>
       </div>
     </section>
   );

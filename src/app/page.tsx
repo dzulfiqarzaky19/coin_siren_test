@@ -1,18 +1,7 @@
-// import { Banner } from '@/types/banner';
-// import { TCategory } from '@/types/categories';
-// import { Product } from '@/types/product';
-
 import { HeaderSection } from '@/components/header/HeaderSection';
 import { HeroSection } from '@/components/hero/HeroSection';
 import { FooterSection } from '@/components/footer/FooterSection';
 
-async function getProducts() {
-  const res = await fetch('http://localhost:3000/api/products', {
-    cache: 'no-store',
-  });
-
-  return res.json();
-}
 
 export default async function Home() {
   const [banners, categories, footer] = await Promise.all([
@@ -27,10 +16,6 @@ export default async function Home() {
 
       <HeroSection />
 
-      {/* <BannerCarousel banners={banners} />
-
-      <CategoriesSection categories={categories} />
-*/}
       <FooterSection data={footer} />
     </main>
   );

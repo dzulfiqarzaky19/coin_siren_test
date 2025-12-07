@@ -16,6 +16,15 @@ const categoriesDummy = [
 ];
 
 const DELAY = 5000; // 5 seconds
+const LEFT_PADDING = `
+  pl-4 
+  sm:pl-[calc((100vw-640px)/2+1rem)] 
+  md:pl-[calc((100vw-768px)/2+1rem)] 
+  lg:pl-[calc((100vw-1024px)/2+1rem)] 
+  xl:pl-[calc((100vw-1280px)/2+1rem)] 
+  2xl:pl-[calc((100vw-1536px)/2+1rem)]
+`
+
 export const HeroCategory = () => {
   const [categories, setCategories] = useState(categoriesDummy);
 
@@ -37,7 +46,7 @@ export const HeroCategory = () => {
   }, []);
 
   return (
-    <IntroAnimation className="container hidden sm:visible mt-20 mx-auto sm:flex overflow-x-auto scrollbar-hidden  flex-nowrap gap-2.5">
+    <IntroAnimation className={`hidden sm:visible mt-20 sm:flex overflow-x-auto scrollbar-hidden flex-nowrap gap-2.5 ${LEFT_PADDING}`}>
       {categories.map((category) => (
         <motion.div
           layout

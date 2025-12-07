@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is the design choice notes from this task
 
-## Getting Started
+third party library
+- framer-motion
+  because its okay to add another third party library, and I see couple of animation for the task, I add `motion` from `framer-motion`.
 
-First, run the development server:
+hero section
+- button with 개발자가 필요하신가요? CTA
+  I wanted to create the hero section as a grid before, using the grid-template like:
+  ```
+  [bubble] [image]
+  [title] [image]
+  [description] [image]
+  [hero filter] [image] (hero filter is hidden on large screen)
+  [cta] [image]
+  [hero stats] [image] (hero filter)
+  ```
+  I believe this is not a good DX, too rigid and harder to maintain, so I changed to flex, and just flip the visibility, even at the cost of adding another CTA there.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Hero slider
+  this is the slider for `Hero Card`. the task showing 3 cards here, but I add a couple more to make it interesting. with helper function [`wrap`](https://motion.dev/docs/wrap) from `motion`.
+  - `virtualIndex` is the center card index, lets say its `0` 
+  - `offset` will be `[4, 0, 1, 2, 3]`
+  - because we play on sliding window from `-1` to `1`, i add this code `Math.abs(offset) <= 1` outside of this will be null,
+  so it will stay like this `[4, 0, 1]`, `[0, 1, 2]`, etc
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- checkbox
+  Before, I think this component is used for filtering the images, but when i translate the checkbox and skill from the cards, there are no corelation between them, so I made this into `readonly` and `defaultChecked` because if I add any useEffect this component will be on client
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
