@@ -1,6 +1,6 @@
-import { HeaderSection } from '@/components/header/HeaderSection';
-import { HeroSection } from '@/components/hero/HeroSection';
-import { FooterSection } from '@/components/footer/FooterSection';
+import { Header } from '@/components/organisms/Header';
+import { HeroSection } from '@/components/organisms/HeroSection';
+import { Footer } from '@/components/organisms/Footer';
 import { Suspense } from 'react';
 
 
@@ -11,18 +11,17 @@ export default async function Home() {
     fetch('http://localhost:3000/api/company', { cache: 'no-store' }).then((r) => r.json()),
   ]);
 
-  console.log({ services }, 123)
 
   return (
     <main>
-      <HeaderSection />
+      <Header />
 
       <Suspense fallback={<div>Loading...</div>}>
         <HeroSection talents={talents} services={services} />
       </Suspense>
 
       <Suspense fallback={<div>Loading...</div>}>
-        <FooterSection company={company} />
+        <Footer company={company} />
       </Suspense>
     </main>
   );

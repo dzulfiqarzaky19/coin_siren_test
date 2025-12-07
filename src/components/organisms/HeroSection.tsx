@@ -1,9 +1,9 @@
-import { HeroStats } from './HeroStats';
+import { HeroStats } from '../molecules/HeroStats';
 import { HeroSlider } from './HeroSlider';
-import { IntroAnimation } from '../ui/animation/IntroAnimation';
+import { IntroAnimation } from '../atoms/IntroAnimation';
 import { HeroCategory } from './HeroCategory';
-import { HeroFilter } from './HeroFilter';
-import { Bubble } from '../ui/Bubble';
+import { HeroFilter } from '../molecules/HeroFilter';
+import { Bubble } from '../atoms/Bubble';
 import { ITalents } from '@/types/talents';
 import { IServices } from '@/types/services';
 
@@ -69,8 +69,6 @@ export const HeroSection = ({ talents, services }: IHeroSectionProps) => (
         {HeroSectionData.cta}
       </button>
     </IntroAnimation>
-
-    {console.log({ services })}
 
     <HeroCategory services={services} />
   </section>

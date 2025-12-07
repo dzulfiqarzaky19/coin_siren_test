@@ -2,10 +2,10 @@
 
 import { motion, wrap } from 'framer-motion';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { HeroCard } from './HeroCard';
-import { IntroAnimation } from '../ui/animation/IntroAnimation';
+import { HeroCard } from '../molecules/HeroCard';
+import { IntroAnimation } from '../atoms/IntroAnimation';
 import { ChevronLeft, ChevronRight, CloudCog, LucideDollarSign } from 'lucide-react';
-import { Bubble } from '../ui/Bubble';
+import { Bubble } from '../atoms/Bubble';
 import Image from 'next/image';
 import { ITalents } from '@/types/talents';
 

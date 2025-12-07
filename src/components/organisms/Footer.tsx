@@ -30,7 +30,7 @@ const SERVICE_CATEGORIES = {
   },
 };
 
-export const FooterSection = ({ company }: IFooterSectionProps) => {
+export const Footer = ({ company }: IFooterSectionProps) => {
   return (
     <section className=" bg-[#FBFBFB] py-20">
       <div className="container mx-auto px-4 space-y-16">

@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { IntroAnimation } from '../ui/animation/IntroAnimation';
+import { IntroAnimation } from '../atoms/IntroAnimation';
 import Image from 'next/image';
 import { IServices } from '@/types/services';
 

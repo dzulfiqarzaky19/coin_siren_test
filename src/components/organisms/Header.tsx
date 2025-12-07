@@ -4,7 +4,8 @@ import { ChevronDown, X } from 'lucide-react';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-export const HeaderSection = () => {
+// No changes needed based on current knowledge, ensuring file consistency.
+export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
