@@ -18,7 +18,7 @@ interface IHeroSectionProps {
 export const HeroSection = ({ talents, services }: IHeroSectionProps) => (
   <section
     className="w-full
-    bg-cyan-700 opacity-80 bg-[url(/hero-bg.png)] bg-blend-color-burn bg-cover bg-center text-white py-20 overflow-hidden">
+    bg-cyan-700 opacity-80 bg-[url(/hero-bg.webp)] bg-blend-color-burn bg-cover bg-center text-white py-20 overflow-hidden">
     <div className="container mx-auto px-4 md:flex items-center">
       <div className="md:w-1/2 mt-12 flex flex-col gap-8 z-10 relative">
         <HeroContent />
