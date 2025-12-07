@@ -1,13 +1,11 @@
 export const getBaseUrl = () => {
-  if (process.env.VERCEL_ENV === 'production') {
-    return 'https://coin-siren-test.vercel.app';
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    return process.env.NEXT_PUBLIC_BASE_URL;
   }
 
-  // Preview deployments: use the auto-generated Vercel URL
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  // Local dev
   return 'http://localhost:3000';
 };
