@@ -10,7 +10,7 @@ export const Header = () => {
         <Logo />
         <HeaderDesktopNav />
         <HeaderMobileMenu />
-        <Button label="문의하기" href="#" className="hidden md:flex" />
+        <Button label="문의하기" href="#" className="hidden md:flex" ariaLabel="Contact button" />
       </div>
     </header>
   );
