@@ -8,7 +8,6 @@ export const HeroStats = () => (
       <div key={item.label} className="space-y-2">
         <Divider />
 
-
         <Typography variant="body1" weight="black">
           {item.label}
         </Typography>

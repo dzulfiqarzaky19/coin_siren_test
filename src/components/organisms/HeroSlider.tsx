@@ -4,7 +4,7 @@ import { motion, wrap } from 'framer-motion';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { HeroCard } from '../molecules/HeroCard';
 import { IntroAnimation } from '../atoms/IntroAnimation';
-import { ChevronLeft, ChevronRight, CloudCog, LucideDollarSign } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Bubble } from '../atoms/Bubble';
 import Image from 'next/image';
 import { ITalents } from '@/types/talents';
@@ -23,7 +23,13 @@ export const HeroSlider = ({ talents }: IHeroSliderProps) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    setWidth(window.innerWidth);
+    const handleResize = () => setWidth(window.innerWidth);
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const total = useMemo(() => talents?.length || 0, [talents]);
@@ -90,7 +96,7 @@ export const HeroSlider = ({ talents }: IHeroSliderProps) => {
 
               {isCenter && (
                 <Bubble className="absolute -top-10 md:top-20 lg:top-10 xl:-top-5 bg-white text-[#00C696] rounded-lg">
-                  <div className="bg-[#BBF32D] w-[26px] h-[26px] min-w-[26px] min-h-[26px] rounded-full flex items-center justify-center">
+                  <div className="bg-[#BBF3D2] w-[26px] h-[26px] min-w-[26px] min-h-[26px] rounded-full flex items-center justify-center">
                     <Image alt="dollar-sign" src={'/dollar.png'} width={12} height={12} />
                   </div>
 
