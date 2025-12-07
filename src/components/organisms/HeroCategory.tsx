@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { IServices } from '@/types/services';
 import { Typography } from '../atoms/Typography';
 
-
 const DELAY = 5000;
 const LEFT_PADDING = `
   pl-4 
@@ -15,15 +14,14 @@ const LEFT_PADDING = `
   lg:pl-[calc((100vw-1024px)/2+1rem)] 
   xl:pl-[calc((100vw-1280px)/2+1rem)] 
   2xl:pl-[calc((100vw-1536px)/2+1rem)]
-`
+`;
 
 interface IHeroCategoryProps {
-  services: IServices[]
+  services: IServices[];
 }
 
 export const HeroCategory = ({ services }: IHeroCategoryProps) => {
   const [categories, setCategories] = useState(services);
-
 
   useEffect(() => {
     if (!services || services?.length === 0) return;
@@ -49,14 +47,14 @@ export const HeroCategory = ({ services }: IHeroCategoryProps) => {
   if (!categories?.length) return null;
 
   return (
-    <IntroAnimation className={`hidden sm:visible mt-20 sm:flex overflow-x-auto scrollbar-hidden flex-nowrap gap-2.5 ${LEFT_PADDING}`}>
+    <IntroAnimation
+      className={`hidden sm:visible mt-20 sm:flex overflow-x-auto scrollbar-hidden flex-nowrap gap-2.5 ${LEFT_PADDING}`}>
       {categories?.map((category) => (
         <motion.div
           layout
           key={category.id}
           className="mt-8 w-[332px] min-w-[332px] h-[88px] text-center bg-white/20 p-4 rounded-xl flex gap-6 items-center ">
-
-          <div className="w-14 h-14 bg-white/40 rounded-lg flex items-center justify-center overflow-hidden" >
+          <div className="w-14 h-14 bg-white/40 rounded-lg flex items-center justify-center overflow-hidden">
             <Image src={category.icon} width={32} height={32} alt={category.title} className="object-contain" />
           </div>
 

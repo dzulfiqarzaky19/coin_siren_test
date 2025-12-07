@@ -8,7 +8,9 @@ export async function GET() {
     { id: 4, title: '해외 세일즈', icon: '/icon-target.png' },
     { id: 5, title: '해외 CS', icon: '/icon-call.png' },
     {
-      id: 6, title: '해외 마케팅', icon: '/icon-presentation.png'
+      id: 6,
+      title: '해외 마케팅',
+      icon: '/icon-presentation.png',
     },
   ];
 

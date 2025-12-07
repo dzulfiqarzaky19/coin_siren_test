@@ -11,8 +11,12 @@ export const HeroStats = () => (
     {stats.map((item) => (
       <div key={item.label} className="space-y-2">
         <div className="border-t-2 w-[129px]"></div>
-        <Typography variant="body1" weight="black">{item.label}</Typography>
-        <Typography variant="caption" weight="black" className="opacity-80">{item.value}</Typography>
+        <Typography variant="body1" weight="black">
+          {item.label}
+        </Typography>
+        <Typography variant="caption" weight="black" className="opacity-80">
+          {item.value}
+        </Typography>
       </div>
     ))}
   </div>

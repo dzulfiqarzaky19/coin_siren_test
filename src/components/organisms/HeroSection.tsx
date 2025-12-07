@@ -19,8 +19,8 @@ const HeroSectionData = {
 };
 
 interface IHeroSectionProps {
-  talents: ITalents[]
-  services: IServices[]
+  talents: ITalents[];
+  services: IServices[];
 }
 
 export const HeroSection = ({ talents, services }: IHeroSectionProps) => (
@@ -34,13 +34,15 @@ export const HeroSection = ({ talents, services }: IHeroSectionProps) => (
             className="mb-5"
             bubbleClassName="bg-[#8BC4FF] md:bg-[#E9F7EF] before:bg-[#8BC4FF] before:md:bg-[#E9F7EF]"
             arrowPosition="left">
-
-            <Typography as="div" variant="caption" weight="black" className="text-white md:text-[#40E2E8] px-3 py-1 rounded-lg">
+            <Typography
+              as="div"
+              variant="caption"
+              weight="black"
+              className="text-white md:text-[#40E2E8] px-3 py-1 rounded-lg">
               {HeroSectionData.topLabel}
             </Typography>
           </Bubble>
         </IntroAnimation>
-
 
         <IntroAnimation animation="fadeInUp">
           <Typography as="h1" variant="h1" weight="black" className="max-w-3xl">

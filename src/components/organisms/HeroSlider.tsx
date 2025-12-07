@@ -10,19 +10,17 @@ import Image from 'next/image';
 import { ITalents } from '@/types/talents';
 import { Typography } from '../atoms/Typography';
 
-
 // sliding window should be [-1, 0, 1]
 // so the visible range is <= 1
 const VISIBLE_RANGE = 1;
 
 interface IHeroSliderProps {
-  talents: ITalents[]
+  talents: ITalents[];
 }
 
 export const HeroSlider = ({ talents }: IHeroSliderProps) => {
   const [index, setIndex] = useState(0);
   const [width, setWidth] = useState(0);
-
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -88,13 +86,12 @@ export const HeroSlider = ({ talents }: IHeroSliderProps) => {
                 damping: 22,
                 delay: i * 0.05,
               }}>
-
               <HeroCard talents={item} />
 
               {isCenter && (
                 <Bubble className="absolute -top-10 md:top-20 lg:top-10 xl:-top-5 bg-white text-[#00C696] rounded-lg">
-                  <div className='bg-[#BBF32D] w-[26px] h-[26px] min-w-[26px] min-h-[26px] rounded-full flex items-center justify-center'>
-                    <Image alt='dollar-sign' src={'/dollar.png'} width={12} height={12} />
+                  <div className="bg-[#BBF32D] w-[26px] h-[26px] min-w-[26px] min-h-[26px] rounded-full flex items-center justify-center">
+                    <Image alt="dollar-sign" src={'/dollar.png'} width={12} height={12} />
                   </div>
 
                   <Typography as="h3" variant="h3" weight="black" className="text-base md:text-xl">
@@ -102,11 +99,10 @@ export const HeroSlider = ({ talents }: IHeroSliderProps) => {
                   </Typography>
                 </Bubble>
               )}
-
             </motion.div>
           );
         })}
       </div>
     </IntroAnimation>
   );
-}
+};

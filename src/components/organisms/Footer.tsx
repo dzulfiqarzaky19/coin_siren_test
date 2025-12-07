@@ -7,8 +7,6 @@ interface IFooterSectionProps {
   company: ICompany;
 }
 
-
-
 const SERVICE_CATEGORIES = {
   remoteOverseasDevelopers: {
     kr: '해외 개발자 원격 채용',
@@ -58,7 +56,9 @@ export const Footer = ({ company }: IFooterSectionProps) => {
 
           <div className="lg:col-span-8 rounded-lg grid gap-4 grid-cols-[repeat(auto-fit,minmax(172px,1fr))]">
             {Object.values(SERVICE_CATEGORIES).map((category) => (
-              <div key={category.en} className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+              <div
+                key={category.en}
+                className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
                 <div className="bg-[#EFF1F6] p-2 w-fit rounded-lg mb-3">
                   <Image src={category.icon} alt={category.en} width={24} height={24} />
                 </div>

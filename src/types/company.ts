@@ -2,22 +2,22 @@ type CompanyName = {
   en: string;
   kr: string;
   in: string;
-}
+};
 
 type CompanyCEO = {
   kr: string;
   en: string;
-}
+};
 
 type CompanyCIN = {
   kr: string;
   in: string;
-}
+};
 
 type CompanyAddress = {
   kr: string;
   in: string;
-}
+};
 
 export interface Company {
   name: CompanyName;
@@ -28,4 +28,3 @@ export interface Company {
   CIN: CompanyCIN;
   address: CompanyAddress;
 }
-

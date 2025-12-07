@@ -16,7 +16,6 @@ const arrowBaseClasses =
   "before:content-[''] before:absolute before:w-4 before:h-4 before:bg-white before:rotate-45 before:-bottom-1 before:z-10";
 
 export const Bubble = ({ children, className = '', arrowPosition = 'center', bubbleClassName = '' }: IBubbleProps) => {
-
   const positionClasses = {
     left: 'before:left-6 before:-translate-x-1/2',
     center: 'before:left-1/2 before:-translate-x-1/2',
